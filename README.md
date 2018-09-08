@@ -1,2 +1,2 @@
 # js-design-patterns
-My conspect of js patterns
+My summary of js patterns
