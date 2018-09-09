@@ -23,8 +23,10 @@ const ChatRoom = function () {
     },
     send (message, from, to) {
       if (to) {
+        // Direct message
         to.receive(message, from)
       } else {
+        // Broadcast message
         Object.keys(persons).map((name) => {
           if (name !== from.name) {
             persons[name].receive(message, from)
@@ -45,5 +47,9 @@ chatroom.register(person2)
 chatroom.register(person3)
 
 person1.send('Hello!', person3)
+// Third received message Hello! from First
 person2.send('Hello!', person3)
-person3.send('Hello guys!')
+// Third received message Hello! from Second
+person3.send('Hello guys!') 
+// First received message Hello guys! from Third
+// Second received message Hello guys! from Third
